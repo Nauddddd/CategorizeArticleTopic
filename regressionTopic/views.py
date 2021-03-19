@@ -36,16 +36,18 @@ def getContent(url):
 
 # Create your views here.
 def home_view(request):
-    dic = {0: 'the-gioi',
-           1: 'du-lich',
-           2: 'the-thao',
-           3: 'giao-duc',
-           4: 'giai-tri',
-           5: 'phap-luat',
-           6: 'khoa-hoc',
-           7: 'suc-khoe',
-           8: 'kinh-doanh',
-           9: 'oto-xe-may'}
+    dic = {9: 'Thế giới',
+           1: 'Du lịch',
+           6: 'Thể thao',
+           7: 'Giáo dục',
+           4: 'Giải trí',
+           5: 'Pháp luật',
+           2: 'Khoa học',
+           8: 'Sức khỏe',
+           10: 'Kinh doanh',
+           3: 'Xe',
+           11: 'Thời sự',
+           0: 'Đời sống'}
 
     template_name = "index.html"
     l = []
@@ -79,7 +81,7 @@ def home_view(request):
         if len(urls) > 0:
             a = np.array(a).reshape(-1,)
             a = tokenizer.texts_to_sequences(a)
-            a = pad_sequences(a, maxlen=2029)
+            a = pad_sequences(a, maxlen=2001)
             ak = model.predict(a)
 
             for ii in ak:
